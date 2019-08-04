@@ -2,18 +2,18 @@ node{
    
    stage("App Build started"){
       echo 'App build started..'
-      git credentialsId: 'Github-ID', url: 'https://github.com/itrainavengers/jenkins-image.git'
+      git credentialsId: 'Github-ID', url: 'https://github.com/itrainavengers/python-docker.git'
       }
    
    stage('Docker Build') {
-     def app = docker.build "manee2k6/itrain-jnks-docker"
+     def app = docker.build "vickeyreddy/python-docker"
     }
    
    stage("Tag & Push image"){
       withDockerRegistry([credentialsId: 'dockerID',url: ""]) {
-          sh 'docker tag manee2k6/itrain-jnks-docker manee2k6/itrain-jnks-docker:1.0'
-          sh 'docker push manee2k6/itrain-jnks-docker:1.0'
-          sh 'docker push manee2k6/itrain-jnks-docker:latest'
+          sh 'docker tag vickeyreddy/python-docker vickeyreddy/python-docker:001'
+          sh 'docker push vickeyreddy/python-docker:001'
+          sh 'docker push vickeyreddy/python-docker:latest'
       }
     }
    
