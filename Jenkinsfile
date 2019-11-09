@@ -13,7 +13,7 @@ node{
       withDockerRegistry([credentialsId: 'dockerID',url: ""]) {
           sh 'docker tag vickeyreddy/python-docker vickeyreddy/python-docker:001'
           sh 'docker push vickeyreddy/python-docker:002'
-          sh 'docker push vickeyreddy/python-docker:latest1'
+          sh 'docker push vickeyreddy/python-docker:latest'
       }
     }
    
